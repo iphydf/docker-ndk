@@ -9,6 +9,9 @@
 
 set -eu
 
+echo "Current build dir size:"
+du -sh "$BASE"
+
 # Basic configuration
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$BASEDIR"
@@ -51,6 +54,3 @@ export PATH="$NDK/bin":$PATH
 
 # Download and configure the Android NDK toolchain
 NDK_PATH="$HOME/android-ndk-$NDK_RELEASE"
-
-echo "Current build dir size:"
-du -sh "$BASE"
