@@ -1,0 +1,51 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings FATAL => 'all';
+use utf8;
+
+use lib '..';
+use Makefile;
+
+makefile {
+   tag => 'ndk',
+
+   targets => {
+      'aarch64' => {
+         NDK_ARCH      => 'arm64',
+         NDK_API       => '21',
+         NDK_PLATFORM  => 'android-21',
+         NDK_TOOLCHAIN => 'aarch64-linux-android-4.9',
+         NDK_TARGET    => 'aarch64-linux-android',
+         NDK_ABI       => 'aarch64-linux-android',
+         ARCH_OPTS     => '',
+      },
+      'arm' => {
+         NDK_ARCH      => 'arm',
+         NDK_API       => '14',
+         NDK_PLATFORM  => 'android-14',
+         NDK_TOOLCHAIN => 'arm-linux-androideabi-4.9',
+         NDK_TARGET    => 'arm-linux-androideabi',
+         NDK_ABI       => 'arm-unknown-linux-androideabi',
+         ARCH_OPTS     => '-fllvm',
+      },
+      'i686' => {
+         NDK_ARCH      => 'x86',
+         NDK_API       => '14',
+         NDK_PLATFORM  => 'android-14',
+         NDK_TOOLCHAIN => 'x86-4.9',
+         NDK_TARGET    => 'i686-linux-android',
+         NDK_ABI       => 'i686-linux-android',
+         ARCH_OPTS     => '',
+      },
+      'x86_64' => {
+         NDK_ARCH      => 'x86_64',
+         NDK_API       => '21',
+         NDK_PLATFORM  => 'android-21',
+         NDK_TOOLCHAIN => 'x86_64-4.9',
+         NDK_TARGET    => 'x86_64-linux-android',
+         NDK_ABI       => 'x86_64-linux-android',
+         ARCH_OPTS     => '',
+      },
+   },
+};
